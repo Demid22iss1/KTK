@@ -1,0 +1,793 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 34px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Основные стили для навигации */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav > ul > li {
+    position: relative;
+    display: inline-block;
+}
+
+
+nav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+/* Стили для подменю */
+.submenu, .submenu ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+}
+
+/* Установим положение вложенных подменю */
+.submenu li ul {
+    top: 0;
+    left: 100%;
+}
+
+/* Показываем подменю при наведении */
+nav li:hover > .submenu,
+nav .submenu li:hover > ul {
+    display: block;
+}
+
+.submenu li {
+    position: relative;
+}
+
+.submenu li a {
+    width: 100%;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.submenu li a:hover {
+    background-color: #f0f0f0;
+}
+
+
+.contact p {
+    margin: 0;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6e35ff;
+    color: #fff;
+    padding: 2ch;
+    /* border-radius: 14% 11% 31% 6% / 24% 21% 29% 20%; Скругление углов */
+}
+
+.hero-content {
+    max-height: 50vh;
+    padding: 0px;
+    margin-top: -20px;
+}
+
+.hero-content h1 {
+    margin-top: -130px;
+    font-size: 15.5vh; /* Примерно соответствующий размер текста */
+    font-family: "Montserrat", sans-serif;
+}
+
+.hero-content button {
+    font-size: 7vh; /* Примерный размер кнопки */
+    margin-top: 70px;
+    padding: 2vh 4vh;
+    background-color: #fdd638;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+/* Изначально скрываем ссылку */
+.extra-info .more {
+    display: none;
+}
+.graf {
+    display: flex;
+    width: 50%;
+    height: 50%;
+}
+.icon{
+    display: flex;
+    width: 45%;
+    height: 35%;
+}
+
+
+.benefits {
+    padding: 20px;
+}
+
+.benefits h2 {
+    text-align: center;
+    font-size: 36px;
+}
+.benefits p{
+    font-size: 20px;
+}
+
+
+.benefits-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+.benefit {
+    flex: 1 1 calc(25% - 40px); /* Пример для четырёх колонок с отступами */
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease-in-out; /* Анимация при наведении */
+    position: relative; /* Для позиционирования дополнительной информации */
+    overflow: hidden; /* Обрезка дополнительного текста при скрытии */
+}
+
+.benefit img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.benefit .extra-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.benefit:hover .extra-info {
+    transform: translateY(0);
+}
+.programs {
+    padding: 20px;
+}
+
+.programs h2 {
+    text-align: center;
+    font-size: 36px;
+}
+
+.programs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.program {
+    flex: 1 1 calc(33.333% - 40px); /* Пример для трёх колонок с отступами */
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    
+}
+
+.program h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.program img {
+    max-width: 80%;
+    height: 400px; /* Задаем фиксированную высоту для всех изображений */
+    object-fit: cover; /* Сохраняем пропорции изображения и заполняем заданные размеры */
+    display: block;
+    margin: 0 auto 10px auto; /* Центрируем и задаем нижний отступ */
+    border-radius: 10px;
+    padding: 0;
+}
+
+.program p {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.program button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: yellow; /* Вы можете изменить цвет фона на свой */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+    padding: 50px;
+    text-align: center;
+    background-color: #6e35ff;
+    color: #fff;
+}
+
+footer form {
+    margin-top: 20px;
+}
+
+footer form input, footer form button {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+}
+
+footer form input {
+    width: 70%;
+    box-sizing: border-box;
+}
+
+footer form button {
+    background-color: #fdd638;
+    cursor: pointer;
+}
+
+ul {
+    display: flex;
+    gap: 20px;
+    transition: .5s;
+  }
+  
+  li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  label {
+    display: none;
+  }
+  
+  #burger-toggle {
+    display: none;
+  }
+  
+  @media (max-width: 955px) {
+     /* Стили для иконки бургер-меню */
+     #burger-toggle {
+        display: none;
+    }
+
+    label {
+        position: relative;
+        display: block;
+        height: 25px;
+        width: 30px;
+        cursor: pointer;
+        z-index: 3; /* Помещаем иконку поверх меню */
+        margin-left: auto; /* Делаем чтобы label был по правому краю */
+    }
+
+    label::after, label::before, label span {
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #000; /* Иконку бургер-меню делаем черной */
+        transition: .3s;
+    }
+
+    label::before {
+        content: "";
+        top: 0;
+    }
+
+    label::after {
+        content: "";
+        bottom: 0;
+    }
+
+    label span {
+        top: 11px;
+    }
+
+    #burger-toggle:checked + label::after {
+        transform: rotate(45deg);
+        bottom: 10px;
+    }
+
+    #burger-toggle:checked + label::before {
+        transform: rotate(-45deg);
+        top: 12px;
+    }
+
+    #burger-toggle:checked + label span {
+        transform: rotate(-45deg);
+        top: 12px;
+    }
+
+    /* Стили для выплывающего меню */
+    nav ul {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        background-color: #fff; /* Меню делаем белым */
+        padding-top: 80px; /* Добавляем отступ, чтобы значок бургера был виден */
+        z-index: 2; /* Показываем меню под значком бургер-меню */
+        flex-direction: column;
+        text-align: center;
+        transform: translateY(-100%);
+        height: 100vh; /* Направляет меню на всю высоту экрана */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    #burger-toggle:checked + label + nav ul {
+        transform: translateY(0);
+    }
+
+    nav ul li a {
+        font-size: 24px;
+        color: #000; /* Цвет текста ссылок */
+    }
+
+    .contact {
+        display: none;
+    }
+     .logo {
+                position: relative;
+                z-index: 3; /* Помещаем логотип поверх меню */
+                padding: 10px; /* Подкорректируем отступы для логотипа */
+                background-color: #fff; /* Опционально, чтобы логотип не "пропадал" */
+            }
+}
+
+
+
+
+@media (min-width: 321px) and (max-width: 380px) {
+    
+    header{
+        padding-bottom:5%;
+        padding: 0%;
+        padding-right: 5px;
+        padding-top: 1px;
+    }
+    .hero {
+        padding: 3%; /* Уменьшаем padding немного */
+    }
+
+    .hero-content h1 {
+        font-size: 7vw; /* Немного уменьшаем размер шрифта */
+        margin-top: 2.5%;
+        font-family: "Montserrat", sans-serif;
+    }
+
+    .hero-content button {
+        margin-top: 5%;
+        padding: 2.5% 5%;
+        font-size: 4vw; /* Стандартная кнопка */
+    }
+    
+
+    .icon {
+        margin-top: 1.5%;
+    }
+
+    .benefits-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4%; /* Немного уменьшаем gap */
+    }
+   
+
+    .benefit {
+        flex: 1 0 48%; /* Элементы занимают почти половину ширины */
+        box-sizing: border-box;
+        padding: 2.5%;
+    }
+
+    .benefit p {
+        font-size: 4vw; /* Небольшое уменьшение размера шрифта */
+    }
+     /* Стили для ссылки */
+     .extra-info .more a {
+        color: #ffffff; /* Фиолетовый цвет */
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .extra-info .more a:hover {
+        color: white; /* Белый цвет при наведении */
+    }
+
+
+    .extra-info p {
+        display: none;
+    }
+
+    .extra-info .detail {
+        display: none;
+    }
+
+    .extra-info .more {
+        display: block;
+    }
+
+    .programs {
+        padding: 0px;
+    }
+
+    .programs h2 {
+        font-size: 30px;
+    }
+
+    .program {
+        flex: 1 1 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        margin: 0px;
+    }
+
+    .program img {
+        height: 200px;
+        
+    }
+
+    .program p {
+        font-size: 20px;
+    }
+
+    .program button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 5%; /* Регулируем padding */
+    }
+
+    .contact-info {
+        font-size: 16px; /* установите нужный размер шрифта */
+        text-align: center; /* центрируем текст */
+        margin-bottom: 15px;
+    }
+
+    .social-media {
+        list-style: none; /* убираем маркеры */
+        display: flex;
+        justify-content: center; /* центрируем иконки по горизонтали */
+        align-items: center; /* центрируем иконки по вертикали */
+    }
+
+    .social-media li {
+        margin: 0 10px; /* добавляем отступы между иконками */
+    }
+    
+}
+/* Стили для экранов от 380px до 430px */
+@media (min-width: 380px) and (max-width: 430px) {
+    .programs {
+        padding: 0px;
+    }
+
+    .programs h2 {
+        font-size: 30px;
+    }
+
+    .program {
+        flex: 1 1 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        margin: 0px;
+    }
+
+    .program img {
+        height: 200px;
+        
+    }
+
+    .program p {
+        font-size: 20px;
+    }
+
+    .program button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    .logo {
+        font-size: 28px;
+        margin: 0;
+        /* text-align: center; */
+        flex-grow: 1;
+    }
+    header{
+        padding-bottom:5%;
+        padding: 0%;
+        padding-right: 5px;
+        padding-top: 1px;
+    }
+    
+    .hero {
+        padding: 4px;
+    }
+
+    .hero-content h1 {
+        padding-top: 4.8em;
+        font-size: 7vw;
+        font-family: "Montserrat", sans-serif;
+    }
+    .icon{
+        margin-right: 60px;
+        display: flex;
+        width: 48%;
+        height: 50%;
+    }
+
+    .hero-content button {
+        margin-top: 18px;
+        padding: 9px 18px;
+        font-size: 0.9em;
+    }
+
+    /* СПЕЦИАЛЬНОСТИ */
+    .benefits-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    
+     /* Стили для ссылки */
+     .extra-info .more a {
+        color: #ffffff; /* Фиолетовый цвет */
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .extra-info .more a:hover {
+        color: white; /* Белый цвет при наведении */
+    }
+
+
+    .benefit {
+        flex: 1 0 45%; /* flex-grow: 1, flex-shrink: 0, flex-basis: 45% */
+        box-sizing: border-box; /* Учитываем границы и padding */
+        padding: 2.5%; /* Заменено на проценты */
+    }
+
+
+    .benefit p {
+        font-size: 3.5vw; /* Заменено на единицы vw */
+    }
+
+    .extra-info p {
+        display: none;
+    }
+
+    .extra-info .detail {
+        display: none;
+    }
+
+    .extra-info .more {
+        display: block;
+    }
+    footer {
+        padding: 5%; /* Регулируем padding */
+    }
+
+    .contact-info {
+        font-size: 16px; /* установите нужный размер шрифта */
+        text-align: center; /* центрируем текст */
+        margin-bottom: 15px;
+    }
+
+    .social-media {
+        list-style: none; /* убираем маркеры */
+        display: flex;
+        justify-content: center; /* центрируем иконки по горизонтали */
+        align-items: center; /* центрируем иконки по вертикали */
+    }
+
+    .social-media li {
+        margin: 0 10px; /* добавляем отступы между иконками */
+    }
+}
+
+/* Стили для экранов до 320px */
+@media (max-width: 320px) {
+    .programs {
+        padding: 0px;
+    }
+
+    .programs h2 {
+        font-size: 30px;
+    }
+
+    .program {
+        flex: 1 1 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        margin: 0px;
+    }
+
+    .program img {
+        height: 200px;
+        
+    }
+
+    .program p {
+        font-size: 20px;
+    }
+
+    .program button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    header{
+        padding-bottom:5%;
+        padding: 0%;
+        padding-right: 5px;
+        padding-top: 1px;
+    }
+     .hero {
+        padding: 2%; /* Заменено на проценты */
+    }
+    
+    .hero-content h1 {
+        font-size: 7vw; /* Заменено на единицы vw (viewport width) для гибкости */
+        margin-top: 2.5%; /* Заменено на проценты */
+        font-family: "Montserrat", sans-serif;
+    }
+
+    .hero-content button {
+        margin-top: 4%; /* Заменено на проценты */
+        padding: 1.5% 3%; /* Заменено на проценты */
+        font-size: 3.8vw; /* Заменено на единицы vw */
+    }
+
+    .icon {
+        margin-top: 1.5%; /* Заменено на проценты */
+    }
+
+    /* СПЕЦИАЛЬНОСТИ */
+    .benefits-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    
+
+    /* Стили для ссылки */
+    .extra-info .more a {
+        color: #ffffff; /* Фиолетовый цвет */
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .extra-info .more a:hover {
+        color: white; /* Белый цвет при наведении */
+    }
+
+    .benefit {
+        flex: 1 0 45%; /* flex-grow: 1, flex-shrink: 0, flex-basis: 45% */
+        box-sizing: border-box; /* Учитываем границы и padding */
+        padding: 2.5%; /* Заменено на проценты */
+    }
+
+
+    .benefit p {
+        font-size: 5.5vw; /* Заменено на единицы vw */
+    }
+
+    .extra-info p {
+        display: none;
+    }
+
+    .extra-info .detail {
+        display: none;
+    }
+
+    .extra-info .more {
+        display: block;
+    }
+
+    .benefit {
+        flex: 1 1 100%;
+        padding: 10px;
+    }
+
+    .program {
+        padding: 10px;
+    }
+
+    .social-media i {
+        font-size: 24px;
+        margin-right: 10px;
+        color: #333;
+    }
+    footer {
+        padding: 5%; /* Регулируем padding */
+    }
+
+    .contact-info {
+        font-size: 16px; /* установите нужный размер шрифта */
+        text-align: center; /* центрируем текст */
+        margin-bottom: 15px;
+    }
+
+    .social-media {
+        list-style: none; /* убираем маркеры */
+        display: flex;
+        justify-content: center; /* центрируем иконки по горизонтали */
+        align-items: center; /* центрируем иконки по вертикали */
+    }
+
+    .social-media li {
+        margin: 0 10px; /* добавляем отступы между иконками */
+    }
+    
+}
+.contact-info {
+    font-size: 16px; /* установите нужный размер шрифта */
+}
+
+.social-media {
+    list-style: none; /* убираем маркеры */
+}
+
+.social-media li {
+    display: inline; /* выводить иконки в строку */
+}
+
+
+
+
